@@ -1,14 +1,14 @@
-class Inches{
-    inches;
-        constructor(Inches)
+class Feet{
+    feet;
+        constructor(Feet)
         {
-            this.inches=Inches;
+            this.feet=Feet;
         }
         checkEquality(obj1,obj2)
         {
-            if(obj1.Inches==obj2.Inches)
+            if(obj1.Feet==obj2.Feet)
             {
-                if(obj1.inches=obj2.inches)
+                if(obj1.feet=obj2.feet)
                 {
                 return true;
                 }
@@ -17,4 +17,4 @@ class Inches{
             }
         }
 }
-module.exports=Inches;
+module.exports=Feet;
