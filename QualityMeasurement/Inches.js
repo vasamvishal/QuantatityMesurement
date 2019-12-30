@@ -4,15 +4,13 @@ class Inches{
         {
             this.inches=Inches;
         }
-        checkEquality(obj1,obj2)
+        checkEquality(inches1,inches2)
         {
-            if(obj1.Inches==obj2.Inches)
-            {
-                if(obj1.inches=obj2.inches)
-                {
+            if(inches1.Inches===inches2.Inches)
+                if(inches1.inches==inches2.inches){
                 return true;
                 }
-            }else{
+            else{
                 return false;
             }
         }

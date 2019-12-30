@@ -4,10 +4,10 @@ class Feet{
         {
             this.feet=Feet;
         }
-        checkEquality(obj1,obj2)
+        checkEquality(feet1,feet2)
         {
-            if(obj1.Feet==obj2.Feet)
-                if(obj1.feet=obj2.feet){
+            if(feet1.Feet===feet2.Feet)
+                if(feet1.feet==feet2.feet){
                 return true;
                 }
             else{
