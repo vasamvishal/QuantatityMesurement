@@ -38,10 +38,16 @@ describe("test cases for 1 inch is equal 12 feets",function(){
         assert.equal(result,false);
     });
 
-    it("given 1 inches should return 1 inches",function(){
+    it("given null and 1 Inches should return false",function(){
         let inchObject=new Inches(null);
         let inchObject1=new Inches(1.0);
         let resultOfInches=inchObject1.checkEquality(inchObject,inchObject1);
+        assert.equal(resultOfInches,false);
+    });
+    it("given 1 Feet and null should return false",function(){
+        let feetObject=new Feet(1.0);
+        let inchObject1=new Inches(null);
+        let resultOfInches=feetObject.checkEquality(feetObject,inchObject1);
         assert.equal(resultOfInches,false);
     });
 });
