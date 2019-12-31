@@ -24,7 +24,12 @@ class Length {
         var value1, value2;
         console.log(inches1.value);
         console.log(inches2.value);
-        if (inches1.unit == 1 && inches2.unit == 12) {
+        if(inches1.unit==inches2.unit)
+        {
+            value1 = inches1.value * inches1.unit;
+            value2 = inches2.value * inches2.unit;
+        }
+        else if (inches1.unit == 1 && inches2.unit == 12) {
             value1 = inches1.value * inches2.unit;
             value2 = inches2.value * inches1.unit;
         }
@@ -33,6 +38,10 @@ class Length {
             value2 = inches2.value * inches1.unit;
         }
         else if (inches1.unit == 12 && inches2.unit == 36) {
+            value1 = inches1.value * inches1.unit;
+            value2 = inches2.value * inches2.unit;
+        }
+        else if (inches1.unit == 36 && inches2.unit == 1) {
             value1 = inches1.value * inches1.unit;
             value2 = inches2.value * inches2.unit;
         }
