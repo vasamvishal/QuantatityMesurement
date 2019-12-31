@@ -2,51 +2,48 @@ let assert=require("assert");
 let chai=require("chai");
 let Inches=require("../QualityMeasurement/Inches")
 let Feet=require("../QualityMeasurement/Feet");
+let Length=require("../QualityMeasurement/Length");
+let EnumTypes=require("../QualityMeasurement/EnumTypes");
 describe("test cases for 1 inch is equal 12 feets",function(){
-    it("given 1 inches should return 1 inches",function(){
-        let inchObject=new Inches(1.0);
-        let inchObject1=new Inches(1.0);
+    it("given 1 inch and 1 inch should return 1 inches",function(){
+        let inchObject=new Length(1.0,EnumTypes.INCHES);
+        let inchObject1=new Length(1.0,EnumTypes.INCHES);
         let resultOfInches=inchObject1.checkEquality(inchObject,inchObject1);
         assert.equal(resultOfInches,true);
     });
 
     it("given 1 Feet and 1 Feet should return true",function(){
-        let feetObject=new Feet(1.0);
-        let feetObject1=new Feet(1.0);
+        let feetObject=new Length(1.0,EnumTypes.FEET);
+        let feetObject1=new Length(1.0,EnumTypes.FEET);
         let resultOfFeets=feetObject.checkEquality(feetObject,feetObject1);
         assert.equal(resultOfFeets,true);
     });
 
     it("given 1 Feet and 1 Inch should return false",function(){
-        let feetObject=new Feet(1.0);
-        let inchObject1=new Inches(1.0);
+        let feetObject=new Length(1.0,EnumTypes.FEET);
+        let inchObject1=new Length(1.0,EnumTypes.INCHES);
         let result=feetObject.checkEquality(feetObject,inchObject1);
         assert.equal(result,false);
     });
 
     it("given 1 Inch and 1 Feet should return false",function(){
-        let feetObject=new Feet(1.0);
-        let inchObject1=new Inches(1.0);
+        let feetObject=new Length(1.0,EnumTypes.FEET);
+        let inchObject1=new Length(1.0,EnumTypes.INCHES);
         let result=inchObject1.checkEquality(feetObject,inchObject1);
         assert.equal(result,false);
     });
 
-    it("given 1 Inch and 1 Feet should return false",function(){
-        let feetObject=new Feet(1.0);
-        let inchObject1=new Inches(1.0);
-        let result=inchObject1.checkEquality(feetObject,inchObject1);
-        assert.equal(result,false);
-    });
 
     it("given null and 1 Inches should return false",function(){
-        let inchObject=new Inches(null);
-        let inchObject1=new Inches(1.0);
+        let inchObject=new Length(null);
+        let inchObject1=new Length(1.0,EnumTypes.INCHES);
         let resultOfInches=inchObject1.checkEquality(inchObject,inchObject1);
         assert.equal(resultOfInches,false);
     });
+
     it("given 1 Feet and null should return false",function(){
-        let feetObject=new Feet(1.0);
-        let inchObject1=new Inches(null);
+        let feetObject=new Length(1.0,EnumTypes.FEET);
+        let inchObject1=new Length(null);
         let resultOfInches=feetObject.checkEquality(feetObject,inchObject1);
         assert.equal(resultOfInches,false);
     });
