@@ -1,5 +1,5 @@
 
-class Length {
+class Quantity {
     value;
     unit;
 
@@ -31,4 +31,4 @@ class Length {
         }
     }
 }
-module.exports = Length;
+module.exports = Quantity;
