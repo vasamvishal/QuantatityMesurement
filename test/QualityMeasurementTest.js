@@ -150,5 +150,14 @@ describe("test cases for 3 feet is equal 1 yard", function () {
         assert.equal(4,additionResult);
     });
 
+    it("given 1 Feet 2 Inch should return 14 Inch", function () {
+        let feet= new Length(1.0, EnumTypes.LENGTH.FEET);
+        let inch1 = new Length(2.0, EnumTypes.LENGTH.INCHES);
+        let resultOfFeet = feet.compare(feet);
+        let resultOfInch = inch1.compare(inch1);
+        let additionResult=inch1.addition(resultOfInch,resultOfFeet);
+        assert.equal(14,additionResult);
+    });
+
 });
 
