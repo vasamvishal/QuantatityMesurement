@@ -1,3 +1,4 @@
+
 const EnumTypes={
     LENGTH:{
         INCHES:"1",
@@ -14,6 +15,10 @@ const EnumTypes={
         KILOGRAM:"1",
         GRAM:"0.001",
         TONNE:"1000"
+    },
+    TEMPERATURE:{
+        CELCIUS:"Celcius",
+        FARHENIET:"Farheniet"
     }
 }
 module.exports=EnumTypes;
