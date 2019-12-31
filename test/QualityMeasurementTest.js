@@ -231,5 +231,14 @@ describe("test cases for volume in gallons ", function () {
             let resultOfKilograms = Math.round(kilograms.compare(kilograms));
             assert.equal(resultOfKilograms, resultOfTonne);
         });
+
+        it("given 1 tonnne and  1000 grams should return 1001 kg", function () {
+            let tonne = new Quantity(1, EnumTypes.WEIGHT.TONNE);
+            let grams = new Quantity(1000, EnumTypes.WEIGHT.GRAM);
+            let resultOfTonne = Math.round(tonne.compare(tonne));
+            let resultOfKilograms = Math.round(grams.compare(grams));
+            let result=tonne.addition(resultOfTonne,resultOfKilograms)
+            assert.equal(1001,result);
+        });
     });
 

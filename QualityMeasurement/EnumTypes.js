@@ -11,9 +11,9 @@ const EnumTypes={
         MILLILITRES:"1"
     },
     WEIGHT:{
-        KILOGRAM:"1000",
-        GRAM:"1",
-        TONNE:"1000000"
+        KILOGRAM:"1",
+        GRAM:"0.001",
+        TONNE:"1000"
     }
 }
 module.exports=EnumTypes;
