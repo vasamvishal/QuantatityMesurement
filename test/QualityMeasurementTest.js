@@ -133,12 +133,21 @@ describe("test cases for 3 feet is equal 1 yard", function () {
         assert.equal(resultOfYards,resultOfFeets);
     });
 
-    it("given 2 Inches and 3 Centimetre should return true", function () {
+    it("given 2 Inches and 5 Centimetre should return true", function () {
         let inch = new Length(2.0, EnumTypes.LENGTH.INCHES);
         let Centimetre = new Length(5.0, EnumTypes.LENGTH.CENTIMETER);
         let resultOfInches = inch.compare(inch);
         let resultOfCentimetre = Centimetre.compare(Centimetre);
         assert.equal(resultOfInches,resultOfCentimetre);
+    });
+
+    it("given 2 Inches and 2 Inch should return 4 Inch", function () {
+        let inch = new Length(2.0, EnumTypes.LENGTH.INCHES);
+        let inch1 = new Length(2.0, EnumTypes.LENGTH.INCHES);
+        let resultOfInch1 = inch.compare(inch);
+        let resultOfInch2 = inch1.compare(inch1);
+        let additionResult=inch.addition(resultOfInch1,resultOfInch2);
+        assert.equal(4,additionResult);
     });
 
 });

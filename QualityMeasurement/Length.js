@@ -40,5 +40,10 @@ class Length {
             return false;
         }
     }
+    addition(quantity,quantity1) {
+        {
+            return quantity+quantity1;
+        }
+    }
 }
 module.exports = Length;
