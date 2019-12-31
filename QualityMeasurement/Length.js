@@ -2,9 +2,11 @@
 class Length {
     value;
     unit;
+
     constructor(value, unit) {
         this.value = value;
         this.unit = unit;
+        console.log(this.unit);
     }
 
     checkEquality(inches1, inches2) {
@@ -30,6 +32,9 @@ class Length {
         }
         else if ( quantity.unit == 36) {
             return quantity.value*36;
+        }
+        else if ( quantity.unit == 2.5) {
+            return quantity.value*1/2.5;
         }
         else {
             return false;
