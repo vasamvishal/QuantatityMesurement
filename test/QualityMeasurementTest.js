@@ -45,12 +45,19 @@ describe("test cases for 1 inch is equal 12 feets", function () {
         let resultOfInches = feetObject.checkEquality(feetObject, inchObject1);
         assert.equal(resultOfInches, false);
     });
-    
+
     it("given 1 Inch and 12 Feet should return true", function () {
         let inchObject = new Length(1.0, EnumTypes.INCHES);
         let feetObject = new Length(12.0, EnumTypes.FEET);
         let resultOfInches = feetObject.compareAndCalculate(inchObject, feetObject);
         assert.equal(resultOfInches, true);
+    });
+
+    it("given 1 Inch with null values and 12 Feet should return false", function () {
+        let inchObject = new Length(null, EnumTypes.INCHES);
+        let feetObject = new Length(12.0, EnumTypes.FEET);
+        let resultOfInches = feetObject.compareAndCalculate(inchObject, feetObject);
+        assert.equal(resultOfInches, false);
     });
 });
 
