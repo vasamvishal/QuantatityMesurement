@@ -23,23 +23,9 @@ class Length {
     }
 
     compare(quantity) {
-        console.log(quantity.value);
-        if(quantity.unit==1) {
-            return quantity.value * 1;
+        console.log(quantity.unit);
+            return quantity.value*quantity.unit;
         }
-        else if (quantity.unit == 12) {
-            return quantity.value * 12;
-        }
-        else if ( quantity.unit == 36) {
-            return quantity.value*36;
-        }
-        else if ( quantity.unit == 2.5) {
-            return quantity.value*1/2.5;
-        }
-        else {
-            return false;
-        }
-    }
     addition(quantity,quantity1) {
         {
             return quantity+quantity1;
