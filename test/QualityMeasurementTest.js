@@ -204,5 +204,12 @@ describe("test cases for 3 feet is equal 1 yard", function () {
         let resultOfLitres = Math.round(litres.compare(litres));
         assert.equal(resultOfGallon,resultOfLitres);
     });
+    it("given 1 litre and 1000ml should return 2 litres", function () {
+        let millilitres= new Length(1000.0, EnumTypes.VOLUME.MILLILITRES);
+        let litres = new Length(1, EnumTypes.VOLUME.LITRES);
+        let resultOfMillilitre = Math.round(millilitres.compare(millilitres));
+        let resultOfLitres = Math.round(litres.compare(litres));
+        assert.equal(resultOfMillilitre,resultOfLitres);
+    });
 });
 
