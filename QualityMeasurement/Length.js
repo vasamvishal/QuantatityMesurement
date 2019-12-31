@@ -22,13 +22,19 @@ class Length {
 
     compareAndCalculate(inches1, inches2) {
         var value1, value2;
-        if (inches1.unit == 1 && inches2.unit == 2) {
-            value1 = inches1.value * 12;
-            value2 = inches2.value * 1;
+        console.log(inches1.value);
+        console.log(inches2.value);
+        if (inches1.unit == 1 && inches2.unit == 12) {
+            value1 = inches1.value * inches2.unit;
+            value2 = inches2.value * inches1.unit;
         }
-        else if (inches1.unit == 2 && inches2.unit == 1) {
-            value1 = inches1.value * 1;
-            value2 = inches2.value * 12;
+        else if (inches1.unit == 12 && inches2.unit == 1) {
+            value1 = inches1.value * inches2.unit;
+            value2 = inches2.value * inches1.unit;
+        }
+        else if (inches1.unit == 12 && inches2.unit == 36) {
+            value1 = inches1.value * inches1.unit;
+            value2 = inches2.value * inches2.unit;
         }
         else {
             return false;
