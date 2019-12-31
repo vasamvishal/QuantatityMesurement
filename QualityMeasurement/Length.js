@@ -20,5 +20,18 @@ class Length{
           }
           return false;
       }
+      compareAndCalculate(inches1,inches2)
+      {
+        if(inches1.unit ==1 && inches2.unit ==2)
+        {
+           let value1=inches1.value*12;
+           let value2=inches2.value*1;
+           if(value1==value2)
+               return true;
+           else if(value1==undefined||value2==undefined)
+           return false;
+        }
+        return false;
+      }
 }
 module.exports=Length;
