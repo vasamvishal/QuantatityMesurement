@@ -1,5 +1,5 @@
 
-class Quantity {
+class Quantity  {
     value;
     unit;
   
@@ -21,17 +21,16 @@ class Quantity {
             }
         return false;
     }
-    compareCelcius(temperature){
-        
-        console.log(temperature.unit);
-        
-        if(temperature.unit=="Celcius")
+    compareCelcius(temperature1,temperature2){
+        if(temperature1.unit.values=="Celcius")
         {
-            return temperature.value;
+            if(temperature1.unit.Type==temperature2.unit.Type)
+            {
+            let result=temperature1.value==(temperature2.value - 32) * 5/9;
+            console.log(result);
+            return result;
+            }
         }
-        else{
-            return (temperature.value - 32) * 5/9;
-        } 
     }
     compare(quantity) {
             return quantity.value*quantity.unit;
