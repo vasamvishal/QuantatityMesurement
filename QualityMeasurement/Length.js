@@ -23,7 +23,6 @@ class Length {
     }
 
     compare(quantity) {
-        console.log(quantity.unit);
             return quantity.value*quantity.unit;
         }
     addition(quantity,quantity1) {

@@ -196,5 +196,13 @@ describe("test cases for 3 feet is equal 1 yard", function () {
         let resultOfmillilitre = millilitres.compare(millilitres);
         assert.equal(resultOfLitre,resultOfmillilitre);
     });
+
+    it("given 1 gallon and 3.78 litres should return 7.57 litres", function () {
+        let gallon= new Length(1.0, EnumTypes.VOLUME.GALLON);
+        let litres = new Length(3.78, EnumTypes.VOLUME.LITRES);
+        let resultOfGallon = Math.round(gallon.compare(gallon));
+        let resultOfLitres = Math.round(litres.compare(litres));
+        assert.equal(resultOfGallon,resultOfLitres);
+    });
 });
 
