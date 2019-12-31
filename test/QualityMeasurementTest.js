@@ -98,6 +98,13 @@ describe("test cases for 3 feet is equal 1 yard", function () {
         assert.equal(result, true);
     });
 
+    it("given 36 inches and 1 yard should return true", function () {
+        let inch = new Length(36.0, EnumTypes.INCHES);
+        let yard = new Length(1.0, EnumTypes.YARD);
+        let result = inch.compareAndCalculate(inch,yard);
+        assert.equal(result, true);
+    });
+
 
 });
 

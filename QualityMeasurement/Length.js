@@ -45,6 +45,10 @@ class Length {
             value1 = inches1.value * inches1.unit;
             value2 = inches2.value * inches2.unit;
         }
+        else if (inches1.unit == 1 && inches2.unit == 36) {
+            value1 = inches1.value * inches1.unit;
+            value2 = inches2.value * inches2.unit;
+        }
         else {
             return false;
         }
