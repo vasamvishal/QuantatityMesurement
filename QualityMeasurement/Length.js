@@ -58,6 +58,8 @@ class Length {
             return false;
         else if (value1 == value2)
             return true;
+        else
+            return false;
 
     }
 }
