@@ -9,7 +9,8 @@ class QuantityMeasurement {
     }
 
     checkEquality(quantity1, quantity2) {
-        if (quantity1.unit== quantity2.unit)
+        console.log(quantity1.unit);
+        if (quantity1.unit.values== quantity2.unit.values)
             if (quantity1.value == quantity2.value) {
                 return true;
             }else {

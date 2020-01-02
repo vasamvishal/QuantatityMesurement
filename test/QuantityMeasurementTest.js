@@ -43,7 +43,7 @@ describe("test cases for 1 inch is equal 12 feets", () => {
 
     it("given 1 Feet and null should return false", () => {
         let feetObject = new QuantityMeasurement(1.0, EnumTypes.LENGTH.FEET);
-        let inchObject1 = new QuantityMeasurement(null);
+        let inchObject1 = new QuantityMeasurement(null,EnumTypes.LENGTH.INCHES);
         let result = feetObject.checkEquality(feetObject, inchObject1);
         assert.equal(result, false);
     });
