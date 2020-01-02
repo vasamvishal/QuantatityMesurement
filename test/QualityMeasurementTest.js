@@ -3,30 +3,30 @@ let chai = require("chai");
 let Quantity = require("../QualityMeasurement/Quantity");
 let EnumTypes = require("../QualityMeasurement/EnumTypes");
 
-describe("test cases for 1 inch is equal 12 feets", function () {
+describe("test cases for 1 inch is equal 12 feets", () => {
 
-    it("given 1 Inch and 1 Inch should return true", function () {
+    it("given 1 Inch and 1 Inch should return true", () => {
         let inchObject = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
         let inchObject1 = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
-        let resultOfInches = inchObject1.checkEquality(inchObject, inchObject1);
-        assert.equal(resultOfInches, true);
+        let result = inchObject1.checkEquality(inchObject, inchObject1);
+        assert.equal(result, true);
     });
 
-    it("given 1 Feet and 1 Feet should return true", function () {
+    it("given 1 Feet and 1 Feet should return true", () => {
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let feetObject1 = new Quantity(1.0, EnumTypes.LENGTH.FEET);
-        let resultOfFeets = feetObject.checkEquality(feetObject, feetObject1);
-        assert.equal(resultOfFeets, true);
+        let result = feetObject.checkEquality(feetObject, feetObject1);
+        assert.equal(result, true);
     });
 
-    it("given 1 Feet and 1 Inch should return false", function () {
+    it("given 1 Feet and 1 Inch should return false", () => {
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let inchObject1 = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
         let result = feetObject.checkEquality(feetObject, inchObject1);
         assert.equal(result, false);
     });
 
-    it("given 1 Inch and 1 Feet should return false", function () {
+    it("given 1 Inch and 1 Feet should return false", () => {
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let inchObject1 = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
         let result = inchObject1.checkEquality(feetObject, inchObject1);
@@ -34,211 +34,206 @@ describe("test cases for 1 inch is equal 12 feets", function () {
     });
 
 
-    it("given null and 1 Inches should return false", function () {
+    it("given null and 1 Inches should return false", () => {
         let inchObject = new Quantity(null);
         let inchObject1 = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
-        let resultOfInches = inchObject1.checkEquality(inchObject, inchObject1);
-        assert.equal(resultOfInches, false);
+        let result = inchObject1.checkEquality(inchObject, inchObject1);
+        assert.equal(result, false);
     });
 
-    it("given 1 Feet and null should return false", function () {
+    it("given 1 Feet and null should return false", () => {
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let inchObject1 = new Quantity(null);
-        let resultOfInches = feetObject.checkEquality(feetObject, inchObject1);
-        assert.equal(resultOfInches, false);
+        let result = feetObject.checkEquality(feetObject, inchObject1);
+        assert.equal(result, false);
     });
 
-    it("given 1 Feet and 12 Inches should return true", function () {
+    it("given 1 Feet and 12 Inches should return true", () => {
         let inchObject = new Quantity(12.0, EnumTypes.LENGTH.INCHES);
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
-        let resultOfInches = feetObject.compare(inchObject);
-        let resultOfFeets = feetObject.compare(feetObject);
-        assert.equal(resultOfInches, resultOfFeets);
+        let result = feetObject.compare(feetObject, inchObject);
+        assert.equal(result, true);
     });
 
-    it("given 1 Feet with null values and 12 Inches should return false", function () {
+    it("given 1 Feet with null values and 12 Inches should return false", () => {
         let inchObject = new Quantity(12.0, EnumTypes.LENGTH.INCHES);
         let feetObject = new Quantity(null, EnumTypes.LENGTH.FEET);
-        let resultOfInches = feetObject.compare(inchObject);
-        let resultOfFeets = feetObject.compare(feetObject);
-        assert.notEqual(resultOfInches, resultOfFeets);
+        let result = feetObject.compare(inchObject, feetObject);
+        assert.equal(result, false);
     });
 
-    it("given 12 Inches and 1 Feet should return true", function () {
+    it("given 12 Inches and 1 Feet should return true", () => {
         let inchObject = new Quantity(12.0, EnumTypes.LENGTH.INCHES);
         let feetObject = new Quantity(1.0, EnumTypes.LENGTH.FEET);
-        let resultOfInches = feetObject.compare(inchObject);
-        let resultOfFeets = feetObject.compare(feetObject);
-        assert.equal(resultOfInches, resultOfFeets);
+        let result = feetObject.compare(inchObject, feetObject);
+        assert.equal(result, true);
 
     });
 });
 
-describe("test cases for 3 feet is equal 1 yard", function () {
+describe("test cases for 3 feet is equal 1 yard", () => {
 
-    it("given 3 Feet and 1 Yard should return true", function () {
+    it("given 3 Feet and 1 Yard should return true", () => {
         let inch = new Quantity(3.0, EnumTypes.LENGTH.FEET);
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
-        let resultOfInches = inch.compare(inch);
-        let resultOfFeets = yard.compare(yard);
-        assert.equal(resultOfInches, resultOfFeets);
+        let result = inch.compare(inch, yard);
+        assert.equal(result, true);
     });
 
-    it("given 1 Feet and 1 Yard should return false", function () {
+    it("given 1 Feet and 1 Yard should return false", () => {
         let feet = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
-        let resultOfInches = feet.compare(feet);
-        let resultOfFeets = yard.compare(yard);
-        assert.notEqual(resultOfInches, resultOfFeets);
+        let result = feet.compare(feet, yard);
+        assert.equal(result, false);
 
     });
 
-    it("given 1 inch and 1 Yard should return false", function () {
+    it("given 1 inch and 1 Yard should return false", () => {
         let inch = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
-        let resultOfInches = inch.compare(inch);
-        let resultOfFeets = yard.compare(yard);
-        assert.notEqual(resultOfInches, resultOfFeets);
+        let result = yard.compare(yard, inch);
+        assert.equal(result, false);
     });
 
-    it("given 1 Yard and 36 inches should return true", function () {
+    it("given 1 Yard and 36 inches should return true", () => {
         let inch = new Quantity(36.0, EnumTypes.LENGTH.INCHES);
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
-        let resultOfFeets = yard.compare(yard);
-        let resultOfInches = inch.compare(inch);
-        assert.equal(resultOfFeets, resultOfInches);
+        let result = yard.compare(yard, inch);
+        assert.equal(result, true);
     });
 
-    it("given 36 inches and 1 yard should return true", function () {
+    it("given 36 inches and 1 yard should return true", () => {
         let inch = new Quantity(36.0, EnumTypes.LENGTH.INCHES);
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
-        let resultOfInches = inch.compare(inch);
-        let resultOfYards = yard.compare(yard);
-        assert.equal(resultOfInches, resultOfYards);
+        let result = yard.compare(inch, yard);
+        assert.equal(result, true);
     });
 
-    it("given 1 Inch and 2 Inch in compareAndCalculate function should return false", function () {
+    it("given 1 Inch and 2 Inch in compareAndCalculate function should return false", () => {
         let yard = new Quantity(1.0, EnumTypes.LENGTH.INCHES);
         let inch = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
-        let resultOfInches = inch.compare(inch);
-        let resultOfYards = yard.compare(yard);
-        assert.notEqual(resultOfInches, resultOfYards);
+        let result = inch.compare(inch, yard);
+        assert.equal(result, false);
     });
 
-    it("given 1 Yard and 3 Feet should return true", function () {
+    it("given 1 Yard and 3 Feet should return true", () => {
         let yard = new Quantity(1.0, EnumTypes.LENGTH.YARD);
         let feet = new Quantity(3.0, EnumTypes.LENGTH.FEET);
-        let resultOfYards = yard.compare(yard);
-        let resultOfFeets = feet.compare(feet);
-        assert.equal(resultOfYards, resultOfFeets);
+        let result = yard.compare(yard, feet);
+        assert.equal(result, true);
     });
 
-    it("given 2 Inches and 5 Centimetre should return true", function () {
+    it("given 2 Inches and 5 Centimetre should return true", () => {
         let inch = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
         let Centimetre = new Quantity(5.0, EnumTypes.LENGTH.CENTIMETER);
-        let resultOfInches = inch.compare(inch);
-        let resultOfCentimetre = Centimetre.compare(Centimetre);
-        assert.equal(resultOfInches, resultOfCentimetre);
+        let result = inch.compare(inch, Centimetre);
+        assert.equal(result, true);
     });
 
-    it("given 2 Inches and 2 Inch should return 4 Inch", function () {
+    it("given 2 Inches and 2 Inch should return 4 Inch", () => {
         let inch = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
         let inch1 = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
-        let resultOfInch1 = inch.compare(inch);
-        let resultOfInch2 = inch1.compare(inch1);
-        let additionResult = inch.addition(resultOfInch1, resultOfInch2);
+        let additionResult = inch.addition(inch, inch1);
         assert.equal(4, additionResult);
     });
 
-    it("given 1 Feet 2 Inch should return 14 Inch", function () {
+    it("given 2 Inches and 2 Litres should return 4 Inch", () => {
+        let inch = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
+        let inch1 = new Quantity(2.0, EnumTypes.VOLUME.LITRES);
+        let additionResult = inch.addition(inch, inch1);
+        assert.equal(additionResult, false);
+    });
+
+    it("given 1 Feet 2 Inch should return 14 Inch", () => {
         let feet = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let inch1 = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
-        let resultOfFeet = feet.compare(feet);
-        let resultOfInch = inch1.compare(inch1);
-        let additionResult = inch1.addition(resultOfInch, resultOfFeet);
+        let additionResult = inch1.addition(feet, inch1);
         assert.equal(14, additionResult);
     });
 
-    it("given 1 Feet 1 Feet should return 24 Inch", function () {
+    it("given 1 Feet 1 Feet should return 24 Inch", () => {
         let feet = new Quantity(1.0, EnumTypes.LENGTH.FEET);
         let feet1 = new Quantity(1.0, EnumTypes.LENGTH.FEET);
-        let resultOfFeet = feet.compare(feet);
-        let resultOfFeet1 = feet1.compare(feet1);
-        let additionResult = feet.addition(resultOfFeet1, resultOfFeet);
+        let additionResult = feet.addition(feet, feet1);
         assert.equal(24, additionResult);
     });
 
-    it("given 2 Inch and 2.5 centimetre should return 3 Inch", function () {
+    it("given 2 Inch and 2.5 centimetre should return 3 Inch", () => {
         let inch = new Quantity(2.0, EnumTypes.LENGTH.INCHES);
         let centimetre = new Quantity(2.5, EnumTypes.LENGTH.CENTIMETER);
-        let resultOfFeet = inch.compare(inch);
-        let resultOfFeet1 = centimetre.compare(centimetre);
-        let additionResult = inch.addition(resultOfFeet1, resultOfFeet);
+        let additionResult = inch.addition(inch, centimetre);
         assert.equal(3, additionResult);
     });
 });
 
-describe("test cases for volume in gallons ", function () {
+describe("test cases for volume in gallons ", () => {
 
-    it("given 1 gallon should return 3.78 litres", function () {
+    it("given 1 gallon should return 3.78 litres", () => {
         let gallon = new Quantity(1.0, EnumTypes.VOLUME.GALLON);
         let litres = new Quantity(3.78, EnumTypes.VOLUME.LITRES);
-        let resultOfGallon = gallon.compare(gallon);
-        let resultOfLitres = litres.compare(litres);
-        assert.equal(resultOfGallon, resultOfLitres);
+        let result = gallon.compare(gallon, litres);
+        assert.equal(result, true);
     });
 
 
-    it("given 1 litre should return 1000 ml", function () {
+    it("given 1 litre should return 1000 ml", () => {
         let litres = new Quantity(1.0, EnumTypes.VOLUME.LITRES);
         let millilitres = new Quantity(1000, EnumTypes.VOLUME.MILLILITRES);
-        let resultOfLitre = litres.compare(litres);
-        let resultOfmillilitre = millilitres.compare(millilitres);
-        assert.equal(resultOfLitre, resultOfmillilitre);
+        let resultOfLitre = litres.compare(litres, millilitres);
+        assert.equal(resultOfLitre, true);
     });
 
-    it("given 1 gallon and 3.78 litres should return 7.57 litres", function () {
+    it("given 1 gallon and 3.78 litres should return 7.57 litres", () => {
         let gallon = new Quantity(1.0, EnumTypes.VOLUME.GALLON);
         let litres = new Quantity(3.78, EnumTypes.VOLUME.LITRES);
-        let resultOfGallon = Math.round(gallon.compare(gallon));
-        let resultOfLitres = Math.round(litres.compare(litres));
-        assert.equal(resultOfGallon, resultOfLitres);
+        let result = Math.round(gallon.addition(gallon, litres));
+        assert.equal(7560, result);
     });
 
-    it("given 1 litre and 1000ml should return 2 litres", function () {
+    it("given 1 litre and 1000ml should return 2 litres", () => {
         let millilitres = new Quantity(1000.0, EnumTypes.VOLUME.MILLILITRES);
         let litres = new Quantity(1, EnumTypes.VOLUME.LITRES);
-        let resultOfMillilitre = Math.round(millilitres.compare(millilitres));
-        let resultOfLitres = Math.round(litres.compare(litres));
-        assert.equal(resultOfMillilitre, resultOfLitres);
+        let result = Math.round(millilitres.addition(millilitres, litres));
+        assert.equal(2000, result);
+    });
+});
+describe("test cases for volume in gallons ", () => {
+
+    it("given 1 kilogram return 1000 grams", () => {
+        let kilogram = new Quantity(1, EnumTypes.WEIGHT.KILOGRAM);
+        let grams = new Quantity(1000, EnumTypes.WEIGHT.GRAM);
+        let result = Math.round(kilogram.compare(kilogram, grams));
+        assert.equal(result, true);
+    });
+
+    it("given 1 tonnne return 1000 kilograms", () => {
+        let tonne = new Quantity(1, EnumTypes.WEIGHT.TONNE);
+        let kilograms = new Quantity(1000, EnumTypes.WEIGHT.KILOGRAM);
+        let result = Math.round(tonne.compare(tonne, kilograms));
+        assert.equal(result, true);
+    });
+
+    it("given 1 tonnne and  1000 grams should return 1001 kg", () => {
+        let tonne = new Quantity(1, EnumTypes.WEIGHT.TONNE);
+        let grams = new Quantity(1000, EnumTypes.WEIGHT.GRAM);
+        let result = tonne.addition(tonne, grams)
+        assert.equal(1001, result);
+    });
+
+    it("given 1 tonnne and  1 milliter should return false", () => {
+        let tonne = new Quantity(1.0, EnumTypes.WEIGHT.TONNE);
+        let millilitres = new Quantity(1.0, EnumTypes.VOLUME.MILLILITRES);
+        let result = Math.round(tonne.compare(tonne, millilitres));
+        assert.equal(result, false);
     });
 });
 
-    describe("test cases for volume in gallons ", function () {
-
-        it("given 1 kilogram return 1000 grams", function () {
-            let kilogram = new Quantity(1, EnumTypes.WEIGHT.KILOGRAM);
-            let grams = new Quantity(1000, EnumTypes.WEIGHT.GRAM);
-            let resultOfKilogram = Math.round(kilogram.compare(kilogram));
-            let resultOfGrams = Math.round(kilogram.compare(grams));
-            assert.equal(resultOfKilogram, resultOfGrams);
-        });
-
-        it("given 1 tonnne return 1000 kilograms", function () {
-            let tonne = new Quantity(1, EnumTypes.WEIGHT.TONNE);
-            let kilograms = new Quantity(1000, EnumTypes.WEIGHT.KILOGRAM);
-            let resultOfTonne = Math.round(tonne.compare(tonne));
-            let resultOfKilograms = Math.round(kilograms.compare(kilograms));
-            assert.equal(resultOfKilograms, resultOfTonne);
-        });
-
-        it("given 1 tonnne and  1000 grams should return 1001 kg", function () {
-            let tonne = new Quantity(1, EnumTypes.WEIGHT.TONNE);
-            let grams = new Quantity(1000, EnumTypes.WEIGHT.GRAM);
-            let resultOfTonne = Math.round(tonne.compare(tonne));
-            let resultOfKilograms = Math.round(grams.compare(grams));
-            let result=tonne.addition(resultOfTonne,resultOfKilograms)
-            assert.equal(1001,result);
-        });
+describe("test cases for celcius to farheniet", () => {
+    it("given 212 Farheniet and  100 celcius should be equal", () => {
+        let celcius = new Quantity(100.0, EnumTypes.TEMPERATURE.CELCIUS);
+        let farheniet = new Quantity(212.0, EnumTypes.TEMPERATURE.FARHENIET);
+        let resultOfFarheneiet = farheniet.compareCelcius(celcius, farheniet);
+        assert.equal(true, resultOfFarheneiet);
     });
+});
 
