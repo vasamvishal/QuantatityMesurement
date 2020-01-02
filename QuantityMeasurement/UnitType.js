@@ -1,5 +1,5 @@
 
-const EnumTypes = {
+const UnitTypes = {
     LENGTH: {
         INCHES: { values: "1", Type: "LENGTH" },
         FEET: { values: "12", Type: "LENGTH" },
@@ -21,4 +21,4 @@ const EnumTypes = {
         FARHENIET: { values: "Farheniet", Type: "TEMP" }
     }
 }
-module.exports = EnumTypes;
+module.exports = UnitTypes;
